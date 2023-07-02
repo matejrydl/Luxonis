@@ -1,0 +1,33 @@
+version: "3"
+services:
+  postgres:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./postgres
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "8080:80"
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./sreality_server"
+    volumes:
+      - /app/node_modules
+      - ./sreality_server:/app
+  client:
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      dockerfile: Dockerfile
+      context: ./sreality
+    volumes:
+      - /app/node_modules
+      - ./sreality:/app

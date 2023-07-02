@@ -1,0 +1,77 @@
+html {
+  /* this makes sure the padding and the border is included in the box sizing */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.container{
+  margin-top: 20px;
+  text-align: center;
+  width: 100vw;
+}
+.flatContainer{
+  width: 600px;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(244, 254, 255) !important;
+}
+.divider{
+  padding: 20px 0px 30px 0px;
+  border-top: 3px solid rgb(127, 197, 255);
+}
+.selected{
+  background-color: rgba(0, 110, 255,0.2) !important;
+}
+a {
+  color: blue;
+  text-decoration: none; /* no underline */
+}
+.scrollbutton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #48abe0;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 31px;
+  height: 60px;
+  width: 60px;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+}
+
+.scrollbutton:hover {
+ background-color: #65b9e6;
+}
+
+.scrollbutton:active {
+  box-shadow: 0 0 2px darkslategray;
+  transform: translateY(2px);
+}
+
+.cardHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 60px;
+  background-color: rgb(84, 131, 134) !important;
+  width: 100vw;
+  margin-bottom: 40px;
+}
+.headerTxt{
+  margin-left: 20px;
+}
+
+.flatsRow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px;
+}
