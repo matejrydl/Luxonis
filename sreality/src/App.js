@@ -17,6 +17,8 @@ function App() {
     getflat();
 
     let count = 0;
+
+    /*checks how high is the window*/
     const interval = setInterval(() => {
       count = count + 1;
 
@@ -29,8 +31,11 @@ function App() {
           // use clearInterval to stop interval execution
           clearInterval(interval);
       }
+
+
   }, 100);
   }, []);
+
   function getflat() {
     fetch('/api') //nginx redirect
       .then(response => {
@@ -44,6 +49,7 @@ function App() {
 
   var container = (flats.length > 0) ? <FlatsContainer flats={flats} page={page} setpage={setpage}/> : <LoadingSpinner/>
 
+  //icon of scroll button
   var scrollDir = (underHalf) ? KeyboardArrowUpIcon : KeyboardArrowDownIcon
 
   function scrollPress(){
@@ -68,6 +74,7 @@ function FlatsContainer(props){
     console.log(flatsToShow.length)
   }
 
+  //sets button values at the bottom of the page
   var devidedflats = Math.ceil(props.flats.length/20)
   var btn1 = (props.page > 1) ? props.page -1 : props.page;
   var btn2 = (props.page > 1) ? props.page : props.page+1;
@@ -95,11 +102,8 @@ function FlatsContainer(props){
         if(props.page < devidedflats) props.setpage(props.page+1)
         break;
     }
-    //setTimeout(function() { //Start the timer
-    //  scroll.scrollToTop()//After 1 second, set render to true
-    //}.bind(this), 100)
   }
-
+  
   const pairs = [];
   for (let i = 1; i < flatsToShow.length; i+=2) {
     pairs.push(<FlatRow flats={[flatsToShow[i-1],flatsToShow[i]]}></FlatRow>)

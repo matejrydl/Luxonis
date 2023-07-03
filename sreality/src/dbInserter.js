@@ -8,6 +8,7 @@ import db6 from './dbs/db6.json'
 import db7 from './dbs/db7.json'
 import db8 from './dbs/db8.json'
 
+//this inserts all the data into a database on the test server
 export default async function ImportAllData(){
     let counter = 0;
     const dbs = [db,db1,db2,db3,db4,db5,db6,db7,db8]
@@ -38,6 +39,7 @@ export default async function ImportAllData(){
     });
 }
 
+//http calls to api - unused on prod
 function createflat(title,image,link) {
     fetch('http://localhost:5000/flats', {
       method: 'POST',

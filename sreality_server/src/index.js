@@ -9,6 +9,8 @@ const realities_model = require('./realities_model')
 app.use(cors());
 app.use(bodyParser.json());
 
+//api server
+
 app.get('/api', (req, res) => {
   console.log("something")
   realities_model.getflats()
@@ -46,8 +48,4 @@ app.get('*', function(req, res){
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
-  //realities_model.getflats()
-  //.then(response => {
-  //  console.log(response);
-  //})
 })
